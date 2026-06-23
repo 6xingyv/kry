@@ -33,12 +33,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mocharealm.kry.android.R
 import com.mocharealm.kry.android.ime.EnterKeySpec
+import com.mocharealm.kry.emojipicker.EmojiPicker
 import com.mocharealm.kry.android.nativebridge.Candidate
 import com.mocharealm.kry.android.settings.KeyboardProfileSpec
 import com.mocharealm.kry.android.ui.theme.KryTheme
@@ -92,10 +94,13 @@ fun KryKeyboardSurface(
     // callers valid; the host owns the state and supplies the handlers.
     shiftState: ShiftState = ShiftState.Off,
     symbolsMode: Boolean = false,
+    emojiMode: Boolean = false,
     chinesePunct: Boolean = false,
     onShift: () -> Unit = {},
     onSymbols: () -> Unit = {},
     onEmoji: () -> Unit = {},
+    onEmojiPicked: (String) -> Unit = {},
+    onCloseEmoji: () -> Unit = {},
     onPunct: (String) -> Unit = {},
     onSymbolInput: (String) -> Unit = {},
 ) {
@@ -110,6 +115,16 @@ fun KryKeyboardSurface(
                     .fillMaxSize()
                     .navigationBarsPadding(),
             ) {
+                if (emojiMode) {
+                    EmojiPicker(
+                        onEmojiPicked = onEmojiPicked,
+                        onBackspace = onBackspace,
+                        onClose = onCloseEmoji,
+                        modifier = Modifier.fillMaxSize(),
+                    )
+                    return@Column
+                }
+
                 // Top band (56dp): toolbar when idle, candidate strip while typing.
                 // Height is fixed so the capture overlay's topMargin stays aligned.
                 if (candidates.isEmpty()) {
@@ -136,7 +151,7 @@ fun KryKeyboardSurface(
                         .padding(KeyboardDimens.surfacePadding),
                 )
                 BottomRow(
-                    spaceLabel = activeProfile.spaceLabel,
+                    spaceLabel = stringResource(activeProfile.spaceLabelRes),
                     symbolsMode = symbolsMode,
                     chinesePunct = chinesePunct,
                     enterIcon = when (enterKey.actionId) {
@@ -145,6 +160,7 @@ fun KryKeyboardSurface(
                         else -> R.drawable.ic_keyboard_return_24px
                     },
                     onSymbols = onSymbols,
+                    onEmoji = onEmoji,
                     onComma = { onPunct(if (chinesePunct) "，" else ",") },
                     onPeriod = { onPunct(if (chinesePunct) "。" else ".") },
                     onSpace = onSpace,
@@ -361,7 +377,7 @@ private fun RowScope.ShiftKey(shiftState: ShiftState, onClick: () -> Unit, modif
     ) {
         Icon(
             painterResource(R.drawable.ic_shift_24px),
-            contentDescription = "Shift",
+            contentDescription = stringResource(R.string.content_description_shift),
             tint = tint,
             modifier = Modifier.size(24.dp),
         )
@@ -448,6 +464,7 @@ private fun BottomRow(
     chinesePunct: Boolean,
     @DrawableRes enterIcon: Int,
     onSymbols: () -> Unit,
+    onEmoji: () -> Unit,
     onComma: () -> Unit,
     onPeriod: () -> Unit,
     onSpace: () -> Unit,
@@ -462,8 +479,18 @@ private fun BottomRow(
         horizontalArrangement = Arrangement.spacedBy(KeyboardDimens.bottomKeyGap),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        TextKey(if (symbolsMode) "ABC" else "?123", onClick = onSymbols, tinted = true, modifier = Modifier.weight(1.5f))
-        EmojiCommaKey(commaLabel = if (chinesePunct) "，" else ",", onClick = onComma, modifier = Modifier.weight(1f))
+        TextKey(
+            if (symbolsMode) stringResource(R.string.keyboard_symbols_abc) else stringResource(R.string.keyboard_symbols_toggle),
+            onClick = onSymbols,
+            tinted = true,
+            modifier = Modifier.weight(1.5f),
+        )
+        EmojiCommaKey(
+            commaLabel = if (chinesePunct) "，" else ",",
+            onClick = onComma,
+            onLongClick = onEmoji,
+            modifier = Modifier.weight(1f),
+        )
         SpaceKey(label = spaceLabel, onTap = onSpace, onLongPress = onSwitchProfile, modifier = Modifier.weight(4.5f))
         TextKey(if (chinesePunct) "。" else ".", onClick = onPeriod, tinted = true, modifier = Modifier.weight(1f))
         EnterKey(icon = enterIcon, onClick = onEnter, modifier = Modifier.weight(1.5f))
@@ -494,14 +521,20 @@ private fun RowScope.TextKey(
 
 /** Gboard's key left of the spacebar: emoji glyph with a small comma label. Tap inserts
  *  the comma (a dedicated emoji panel is a separate feature). */
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun RowScope.EmojiCommaKey(commaLabel: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
+private fun RowScope.EmojiCommaKey(
+    commaLabel: String,
+    onClick: () -> Unit,
+    onLongClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     Box(
         modifier = modifier
             .fillMaxHeight()
             .clip(MaterialTheme.shapes.medium)
             .background(MaterialTheme.colorScheme.surfaceContainerHigh)
-            .clickable(onClick = onClick),
+            .combinedClickable(onClick = onClick, onLongClick = onLongClick),
         contentAlignment = Alignment.Center,
     ) {
         Icon(
@@ -553,7 +586,7 @@ private fun RowScope.EnterKey(@DrawableRes icon: Int, onClick: () -> Unit, modif
     ) {
         Icon(
             painterResource(icon),
-            contentDescription = "Enter",
+            contentDescription = stringResource(R.string.content_description_enter),
             tint = MaterialTheme.colorScheme.onPrimaryContainer,
             modifier = Modifier.size(24.dp),
         )

@@ -65,6 +65,7 @@ class KryKeyboardHostView(
     private val canSwitchIme = mutableStateOf(false)
     private val shiftState = mutableStateOf(ShiftState.Off)
     private val symbolsMode = mutableStateOf(false)
+    private val emojiMode = mutableStateOf(false)
     private val captureView: MotionCaptureView
     private val tapPoints = mutableListOf<TapPoint>()
     private var tapViewWidth = 1f
@@ -89,6 +90,7 @@ class KryKeyboardHostView(
                     canSwitchIme = canSwitchIme.value,
                     shiftState = shiftState.value,
                     symbolsMode = symbolsMode.value,
+                    emojiMode = emojiMode.value,
                     chinesePunct = activeProfile.value.id == KeyboardProfileStore.ProfileZhQwerty,
                     onCandidate = { commitCandidate(it) },
                     onSpace = { handleSpace() },
@@ -99,7 +101,9 @@ class KryKeyboardHostView(
                     onSwitchIme = onSwitchIme,
                     onShift = { cycleShift() },
                     onSymbols = { toggleSymbols() },
-                    onEmoji = { /* TODO: emoji panel */ },
+                    onEmoji = { openEmojiPicker() },
+                    onEmojiPicked = { text -> handleEmoji(text) },
+                    onCloseEmoji = { closeEmojiPicker() },
                     onPunct = { text -> handlePunct(text) },
                     onSymbolInput = { text -> handlePunct(text) },
                 )
@@ -150,6 +154,7 @@ class KryKeyboardHostView(
         // A new input field starts on the letter layer with shift cleared.
         shiftState.value = ShiftState.Off
         symbolsMode.value = false
+        emojiMode.value = false
         captureView.visibility = View.VISIBLE
         decodeGeneration += 1
         gestureDecodeJob?.cancel()
@@ -265,6 +270,13 @@ class KryKeyboardHostView(
         setCandidates(emptyList())
     }
 
+    private fun handleEmoji(text: String) {
+        commitDefaultCandidate()
+        inputConnectionProvider()?.commitText(text, 1)
+        tapPoints.clear()
+        setCandidates(emptyList())
+    }
+
     private fun handleBackspace() {
         if (tapPoints.isNotEmpty()) {
             tapPoints.removeAt(tapPoints.lastIndex)
@@ -355,6 +367,19 @@ class KryKeyboardHostView(
         }
     }
 
+    private fun openEmojiPicker() {
+        symbolsMode.value = false
+        emojiMode.value = true
+        tapPoints.clear()
+        setCandidates(emptyList())
+        captureView.visibility = View.GONE
+    }
+
+    private fun closeEmojiPicker() {
+        emojiMode.value = false
+        captureView.visibility = View.VISIBLE
+    }
+
     private val userDictFile by lazy { java.io.File(context.filesDir, "user_dict.tsv") }
 
     /** Load the persisted adaptive user dictionary once, off the main thread. */
@@ -422,8 +447,7 @@ private data class GestureBufferSnapshot(
     val sampleCount: Int,
 )
 
- data class EnterKeySpec(
-    val label: String = "Enter",
+data class EnterKeySpec(
     val actionId: Int = EditorInfo.IME_ACTION_NONE,
     val performEditorAction: Boolean = false,
 ) {
@@ -434,12 +458,12 @@ private data class GestureBufferSnapshot(
             val noEnterAction = (imeOptions and EditorInfo.IME_FLAG_NO_ENTER_ACTION) != 0
             return when {
                 noEnterAction -> EnterKeySpec()
-                actionId == EditorInfo.IME_ACTION_GO -> EnterKeySpec("Go", actionId, true)
-                actionId == EditorInfo.IME_ACTION_SEARCH -> EnterKeySpec("Search", actionId, true)
-                actionId == EditorInfo.IME_ACTION_SEND -> EnterKeySpec("Send", actionId, true)
-                actionId == EditorInfo.IME_ACTION_NEXT -> EnterKeySpec("Next", actionId, true)
-                actionId == EditorInfo.IME_ACTION_DONE -> EnterKeySpec("Done", actionId, true)
-                actionId == EditorInfo.IME_ACTION_PREVIOUS -> EnterKeySpec("Prev", actionId, true)
+                actionId == EditorInfo.IME_ACTION_GO -> EnterKeySpec(actionId, true)
+                actionId == EditorInfo.IME_ACTION_SEARCH -> EnterKeySpec(actionId, true)
+                actionId == EditorInfo.IME_ACTION_SEND -> EnterKeySpec(actionId, true)
+                actionId == EditorInfo.IME_ACTION_NEXT -> EnterKeySpec(actionId, true)
+                actionId == EditorInfo.IME_ACTION_DONE -> EnterKeySpec(actionId, true)
+                actionId == EditorInfo.IME_ACTION_PREVIOUS -> EnterKeySpec(actionId, true)
                 else -> EnterKeySpec()
             }
         }

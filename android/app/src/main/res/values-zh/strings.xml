@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Kry 键盘</string>
+    <string name="ime_name">Kry 中文滑行输入</string>
+    <string name="subtype_zh">Kry 中文拼音</string>
+    <string name="subtype_en">Kry 英文</string>
+
+    <string name="settings_title">设置</string>
+    <string name="settings_section_input">输入</string>
+    <string name="settings_section_appearance">外观</string>
+    <string name="settings_section_system">系统</string>
+    <string name="settings_section_keys">按键</string>
+    <string name="settings_section_layout">布局</string>
+    <string name="settings_section_candidates">候选词</string>
+    <string name="settings_section_gesture_typing">滑行输入</string>
+    <string name="settings_section_color">颜色</string>
+
+    <string name="settings_language_title">语言</string>
+    <string name="settings_preferences_title">偏好设置</string>
+    <string name="settings_preferences_description">键盘行为、布局和按键反馈</string>
+    <string name="settings_correction_title">更正和建议</string>
+    <string name="settings_correction_description">自动更正、候选词和联想</string>
+    <string name="settings_theme_title">主题</string>
+    <string name="settings_theme_description">Material You 动态颜色</string>
+    <string name="settings_enable_keyboard_title">启用键盘</string>
+    <string name="settings_enable_keyboard_description">在系统设置中启用 Kry</string>
+    <string name="settings_switch_keyboard_title">切换输入法</string>
+    <string name="settings_switch_keyboard_description">打开系统输入法选择器</string>
+
+    <string name="settings_key_preview_title">按键预览</string>
+    <string name="settings_key_preview_description">输入时显示按键弹出预览</string>
+    <string name="settings_haptic_feedback_title">触感反馈</string>
+    <string name="settings_haptic_feedback_description">按键时使用系统触感反馈</string>
+    <string name="settings_sound_feedback_title">按键音效</string>
+    <string name="settings_sound_feedback_description">按键时播放系统按键音</string>
+    <string name="settings_one_handed_mode_title">单手模式</string>
+    <string name="settings_one_handed_mode_description">压缩键盘宽度以便单手输入</string>
+
+    <string name="settings_show_suggestions_title">显示建议</string>
+    <string name="settings_show_suggestions_description">在候选栏显示输入建议</string>
+    <string name="settings_auto_correction_title">自动更正</string>
+    <string name="settings_auto_correction_description">按空格时使用高置信候选词</string>
+    <string name="settings_personal_dictionary_title">个人词典</string>
+    <string name="settings_personal_dictionary_description">将常用输入保存在本地词典</string>
+    <string name="settings_gesture_typing_title">滑行输入</string>
+    <string name="settings_gesture_typing_description">在字母间滑动以输入单词</string>
+
+    <string name="settings_dynamic_color_title">动态颜色</string>
+    <string name="settings_dynamic_color_description">跟随系统 Material You 色彩</string>
+    <string name="settings_high_contrast_keys_title">高对比按键</string>
+    <string name="settings_high_contrast_keys_description">提高键盘键帽和文字对比度</string>
+
+    <string name="profile_zh_qwerty_title">中文拼音</string>
+    <string name="profile_zh_qwerty_subtitle">QWERTY 轻触和滑行输入中文候选词</string>
+    <string name="profile_zh_qwerty_short_label">中</string>
+    <string name="profile_zh_qwerty_space_label">拼音</string>
+    <string name="profile_en_qwerty_title">英文</string>
+    <string name="profile_en_qwerty_subtitle">QWERTY 英文词语预测和滑行输入</string>
+    <string name="profile_en_qwerty_short_label">英</string>
+    <string name="profile_en_qwerty_space_label">English</string>
+
+    <string name="content_description_back">返回</string>
+    <string name="content_description_enter">回车</string>
+</resources>

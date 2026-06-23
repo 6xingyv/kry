@@ -6,6 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.res.stringResource
 import com.mocharealm.kry.android.R
 import com.mocharealm.kry.android.ui.navigation.LocalNavigator
 import com.mocharealm.kry.android.ui.screen.settings.SettingsScaffold
@@ -24,36 +25,36 @@ fun PreferenceScreen(
     var oneHandedMode by rememberSaveable { mutableStateOf(false) }
 
     SettingsScaffold(
-        title = "偏好设置",
+        title = stringResource(R.string.settings_preferences_title),
         windowWidthSizeClass = windowWidthSizeClass,
         onBack = { navigator.pop() },
         largeTopBar = false,
     ) {
         item {
-            SegmentedColumn(title = "按键") {
+            SegmentedColumn(title = stringResource(R.string.settings_section_keys)) {
                 item {
                     SwitchSettingItem(
-                        icon = R.drawable.ic_text_edit_24px,
-                        title = "按键预览",
-                        description = "输入时显示按键弹出预览",
+                        icon = R.drawable.ic_preview_24px,
+                        title = stringResource(R.string.settings_key_preview_title),
+                        description = stringResource(R.string.settings_key_preview_description),
                         checked = keyPreview,
                         onCheckedChange = { keyPreview = it },
                     )
                 }
                 item {
                     SwitchSettingItem(
-                        icon = R.drawable.ic_mood_24px,
-                        title = "触感反馈",
-                        description = "按键时使用系统触感反馈",
+                        icon = R.drawable.ic_vibration_24px,
+                        title = stringResource(R.string.settings_haptic_feedback_title),
+                        description = stringResource(R.string.settings_haptic_feedback_description),
                         checked = hapticFeedback,
                         onCheckedChange = { hapticFeedback = it },
                     )
                 }
                 item {
                     SwitchSettingItem(
-                        icon = R.drawable.ic_mic_24px,
-                        title = "按键音效",
-                        description = "按键时播放系统按键音",
+                        icon = R.drawable.ic_volume_up_24px,
+                        title = stringResource(R.string.settings_sound_feedback_title),
+                        description = stringResource(R.string.settings_sound_feedback_description),
                         checked = soundFeedback,
                         onCheckedChange = { soundFeedback = it },
                     )
@@ -62,12 +63,12 @@ fun PreferenceScreen(
         }
 
         item {
-            SegmentedColumn(title = "布局") {
+            SegmentedColumn(title = stringResource(R.string.settings_section_layout)) {
                 item {
                     SwitchSettingItem(
-                        icon = R.drawable.ic_grid_view_24px,
-                        title = "单手模式",
-                        description = "压缩键盘宽度以便单手输入",
+                        icon = R.drawable.ic_swipe_24px,
+                        title = stringResource(R.string.settings_one_handed_mode_title),
+                        description = stringResource(R.string.settings_one_handed_mode_description),
                         checked = oneHandedMode,
                         onCheckedChange = { oneHandedMode = it },
                     )

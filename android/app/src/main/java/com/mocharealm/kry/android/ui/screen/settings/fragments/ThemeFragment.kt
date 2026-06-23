@@ -6,6 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
 import com.mocharealm.kry.android.R
 import com.mocharealm.kry.android.ui.navigation.LocalNavigator
 import com.mocharealm.kry.android.ui.screen.settings.SettingsScaffold
@@ -22,27 +23,27 @@ fun ThemeScreen(
     var highContrastKeys by rememberSaveable { mutableStateOf(false) }
 
     SettingsScaffold(
-        title = "主题",
+        title = stringResource(R.string.settings_theme_title),
         windowWidthSizeClass = windowWidthSizeClass,
         onBack = { navigator.pop() },
         largeTopBar = false,
     ) {
         item {
-            SegmentedColumn(title = "颜色") {
+            SegmentedColumn(title = stringResource(R.string.settings_section_color)) {
                 item {
                     SwitchSettingItem(
                         icon = R.drawable.ic_palette_24px,
-                        title = "动态颜色",
-                        description = "跟随系统 Material You 色彩",
+                        title = stringResource(R.string.settings_dynamic_color_title),
+                        description = stringResource(R.string.settings_dynamic_color_description),
                         checked = dynamicColor,
                         onCheckedChange = { dynamicColor = it },
                     )
                 }
                 item {
                     SwitchSettingItem(
-                        icon = R.drawable.ic_grid_view_24px,
-                        title = "高对比按键",
-                        description = "提高键盘键帽和文字对比度",
+                        icon = R.drawable.ic_contrast_24px,
+                        title = stringResource(R.string.settings_high_contrast_keys_title),
+                        description = stringResource(R.string.settings_high_contrast_keys_description),
                         checked = highContrastKeys,
                         onCheckedChange = { highContrastKeys = it },
                     )

@@ -3,4 +3,64 @@
     <string name="ime_name">Kry Chinese Glide</string>
     <string name="subtype_zh">Kry Chinese Pinyin</string>
     <string name="subtype_en">Kry English</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_input">Input</string>
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="settings_section_system">System</string>
+    <string name="settings_section_keys">Keys</string>
+    <string name="settings_section_layout">Layout</string>
+    <string name="settings_section_candidates">Suggestions</string>
+    <string name="settings_section_gesture_typing">Glide typing</string>
+    <string name="settings_section_color">Color</string>
+
+    <string name="settings_language_title">Languages</string>
+    <string name="settings_preferences_title">Preferences</string>
+    <string name="settings_preferences_description">Keyboard behavior, layout, and key feedback</string>
+    <string name="settings_correction_title">Correction and suggestions</string>
+    <string name="settings_correction_description">Auto-correction, candidates, and predictions</string>
+    <string name="settings_theme_title">Theme</string>
+    <string name="settings_theme_description">Material You dynamic color</string>
+    <string name="settings_enable_keyboard_title">Enable keyboard</string>
+    <string name="settings_enable_keyboard_description">Enable Kry in system settings</string>
+    <string name="settings_switch_keyboard_title">Switch input method</string>
+    <string name="settings_switch_keyboard_description">Open the system input method picker</string>
+
+    <string name="settings_key_preview_title">Key preview</string>
+    <string name="settings_key_preview_description">Show key popup previews while typing</string>
+    <string name="settings_haptic_feedback_title">Haptic feedback</string>
+    <string name="settings_haptic_feedback_description">Use system haptic feedback on key press</string>
+    <string name="settings_sound_feedback_title">Key sounds</string>
+    <string name="settings_sound_feedback_description">Play system key sounds on key press</string>
+    <string name="settings_one_handed_mode_title">One-handed mode</string>
+    <string name="settings_one_handed_mode_description">Compress keyboard width for one-handed input</string>
+
+    <string name="settings_show_suggestions_title">Show suggestions</string>
+    <string name="settings_show_suggestions_description">Show input suggestions in the candidate strip</string>
+    <string name="settings_auto_correction_title">Auto-correction</string>
+    <string name="settings_auto_correction_description">Use high-confidence candidates when pressing space</string>
+    <string name="settings_personal_dictionary_title">Personal dictionary</string>
+    <string name="settings_personal_dictionary_description">Save frequent input in the local dictionary</string>
+    <string name="settings_gesture_typing_title">Glide typing</string>
+    <string name="settings_gesture_typing_description">Slide between letters to enter words</string>
+
+    <string name="settings_dynamic_color_title">Dynamic color</string>
+    <string name="settings_dynamic_color_description">Follow system Material You colors</string>
+    <string name="settings_high_contrast_keys_title">High-contrast keys</string>
+    <string name="settings_high_contrast_keys_description">Increase keyboard keycap and text contrast</string>
+
+    <string name="profile_zh_qwerty_title">Chinese Pinyin</string>
+    <string name="profile_zh_qwerty_subtitle">QWERTY tap and glide with Chinese candidates</string>
+    <string name="profile_zh_qwerty_short_label">ZH</string>
+    <string name="profile_zh_qwerty_space_label">Pinyin</string>
+    <string name="profile_en_qwerty_title">English</string>
+    <string name="profile_en_qwerty_subtitle">QWERTY word prediction and glide</string>
+    <string name="profile_en_qwerty_short_label">EN</string>
+    <string name="profile_en_qwerty_space_label">English</string>
+
+    <string name="content_description_back">Back</string>
+    <string name="content_description_shift" translatable="false">Shift</string>
+    <string name="content_description_enter">Enter</string>
+    <string name="keyboard_symbols_abc" translatable="false">ABC</string>
+    <string name="keyboard_symbols_toggle" translatable="false">\?123</string>
 </resources>

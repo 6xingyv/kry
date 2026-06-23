@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.mocharealm.kry.android.R
 import com.mocharealm.kry.android.settings.KeyboardProfileSpec
@@ -55,34 +56,34 @@ fun SettingsHomeScreen(
     val navigator = LocalNavigator.current
 
     SettingsScaffold(
-        title = "设置",
+        title = stringResource(R.string.settings_title),
         windowWidthSizeClass = windowWidthSizeClass,
         onBack = onExit,
         largeTopBar = true,
     ) {
         item {
-            SegmentedColumn(title = "输入") {
+            SegmentedColumn(title = stringResource(R.string.settings_section_input)) {
                 item {
                     NavigationSettingItem(
                         icon = R.drawable.ic_language_24px,
-                        title = "语言",
-                        description = profile.title,
+                        title = stringResource(R.string.settings_language_title),
+                        description = stringResource(profile.titleRes),
                         onClick = { navigator.push(SettingsRoute.Language) },
                     )
                 }
                 item {
                     NavigationSettingItem(
                         icon = R.drawable.ic_tune_24px,
-                        title = "偏好设置",
-                        description = "键盘行为、布局和按键反馈",
+                        title = stringResource(R.string.settings_preferences_title),
+                        description = stringResource(R.string.settings_preferences_description),
                         onClick = { navigator.push(SettingsRoute.Preferences) },
                     )
                 }
                 item {
                     NavigationSettingItem(
-                        icon = R.drawable.ic_translate_24px,
-                        title = "更正和建议",
-                        description = "自动更正、候选词和联想",
+                        icon = R.drawable.ic_spellcheck_24px,
+                        title = stringResource(R.string.settings_correction_title),
+                        description = stringResource(R.string.settings_correction_description),
                         onClick = { navigator.push(SettingsRoute.Correction) },
                     )
                 }
@@ -90,12 +91,12 @@ fun SettingsHomeScreen(
         }
 
         item {
-            SegmentedColumn(title = "外观") {
+            SegmentedColumn(title = stringResource(R.string.settings_section_appearance)) {
                 item {
                     NavigationSettingItem(
                         icon = R.drawable.ic_palette_24px,
-                        title = "主题",
-                        description = "Material You 动态颜色",
+                        title = stringResource(R.string.settings_theme_title),
+                        description = stringResource(R.string.settings_theme_description),
                         onClick = { navigator.push(SettingsRoute.Theme) },
                     )
                 }
@@ -103,20 +104,20 @@ fun SettingsHomeScreen(
         }
 
         item {
-            SegmentedColumn(title = "系统") {
+            SegmentedColumn(title = stringResource(R.string.settings_section_system)) {
                 item {
                     NavigationSettingItem(
-                        icon = R.drawable.ic_settings_24px,
-                        title = "启用键盘",
-                        description = "在系统设置中启用 Kry",
+                        icon = R.drawable.ic_keyboard_24px,
+                        title = stringResource(R.string.settings_enable_keyboard_title),
+                        description = stringResource(R.string.settings_enable_keyboard_description),
                         onClick = onEnableKeyboard,
                     )
                 }
                 item {
                     NavigationSettingItem(
-                        icon = R.drawable.ic_grid_view_24px,
-                        title = "切换输入法",
-                        description = "打开系统输入法选择器",
+                        icon = R.drawable.ic_keyboard_tab_24px,
+                        title = stringResource(R.string.settings_switch_keyboard_title),
+                        description = stringResource(R.string.settings_switch_keyboard_description),
                         onClick = onSwitchKeyboard,
                     )
                 }
@@ -190,7 +191,7 @@ private fun BackButton(onBack: () -> Unit) {
     IconButton(onClick = onBack) {
         Icon(
             painter = painterResource(R.drawable.ic_arrow_back_24px),
-            contentDescription = "返回",
+            contentDescription = stringResource(R.string.content_description_back),
         )
     }
 }

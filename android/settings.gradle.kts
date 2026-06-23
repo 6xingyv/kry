@@ -31,3 +31,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "KryAndroid"
 include(":app")
+include(":emojipicker")

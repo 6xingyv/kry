@@ -1,14 +1,16 @@
 package com.mocharealm.kry.android.settings
 
 import android.content.Context
+import androidx.annotation.StringRes
+import com.mocharealm.kry.android.R
 
 data class KeyboardProfileSpec(
     val id: String,
-    val title: String,
-    val subtitle: String,
-    val shortLabel: String,
+    @StringRes val titleRes: Int,
+    @StringRes val subtitleRes: Int,
+    @StringRes val shortLabelRes: Int,
     /** Centered on the space bar, like Gboard (e.g. "拼音" / "English"). */
-    val spaceLabel: String,
+    @StringRes val spaceLabelRes: Int,
 )
 
 object KeyboardProfileStore {
@@ -21,17 +23,17 @@ object KeyboardProfileStore {
     val profiles = listOf(
         KeyboardProfileSpec(
             id = ProfileZhQwerty,
-            title = "Chinese Pinyin",
-            subtitle = "QWERTY tap and glide with Chinese candidates",
-            shortLabel = "ZH",
-            spaceLabel = "拼音",
+            titleRes = R.string.profile_zh_qwerty_title,
+            subtitleRes = R.string.profile_zh_qwerty_subtitle,
+            shortLabelRes = R.string.profile_zh_qwerty_short_label,
+            spaceLabelRes = R.string.profile_zh_qwerty_space_label,
         ),
         KeyboardProfileSpec(
             id = ProfileEnQwerty,
-            title = "English",
-            subtitle = "QWERTY word prediction and glide",
-            shortLabel = "EN",
-            spaceLabel = "English",
+            titleRes = R.string.profile_en_qwerty_title,
+            subtitleRes = R.string.profile_en_qwerty_subtitle,
+            shortLabelRes = R.string.profile_en_qwerty_short_label,
+            spaceLabelRes = R.string.profile_en_qwerty_space_label,
         ),
     )
 

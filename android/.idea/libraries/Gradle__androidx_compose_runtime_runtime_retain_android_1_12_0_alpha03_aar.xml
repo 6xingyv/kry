@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.compose.runtime:runtime-retain-android:1.12.0-alpha03@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/9.6.0/transforms/c10da38d50562a3eace8b9ae9a4b094c/transformed/runtime-retain/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/9.6.0/transforms/c10da38d50562a3eace8b9ae9a4b094c/transformed/runtime-retain/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/9.6.0/transforms/e9721721498d79fff2f933e587d409ad/transformed/runtime-retain/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/9.6.0/transforms/e9721721498d79fff2f933e587d409ad/transformed/runtime-retain/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

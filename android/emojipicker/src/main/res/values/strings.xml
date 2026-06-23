@@ -1,0 +1,15 @@
+<resources>
+    <string name="emoji_category_recent">Recently used</string>
+    <string name="emoji_category_smileys_emotion">Smileys and emotion</string>
+    <string name="emoji_category_people_body">People and body</string>
+    <string name="emoji_category_animals_nature">Animals and nature</string>
+    <string name="emoji_category_food_drink">Food and drink</string>
+    <string name="emoji_category_travel_places">Travel and places</string>
+    <string name="emoji_category_activities">Activities</string>
+    <string name="emoji_category_objects">Objects</string>
+    <string name="emoji_category_symbols">Symbols</string>
+    <string name="emoji_category_flags">Flags</string>
+    <string name="emoji_no_recent">No recent emojis</string>
+    <string name="emoji_close_abc">ABC</string>
+    <string name="emoji_backspace">Backspace</string>
+</resources>

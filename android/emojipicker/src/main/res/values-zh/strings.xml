@@ -1,0 +1,15 @@
+<resources>
+    <string name="emoji_category_recent">最近使用</string>
+    <string name="emoji_category_smileys_emotion">表情和情感</string>
+    <string name="emoji_category_people_body">人物和身体</string>
+    <string name="emoji_category_animals_nature">动物和自然</string>
+    <string name="emoji_category_food_drink">食物和饮品</string>
+    <string name="emoji_category_travel_places">旅行和地点</string>
+    <string name="emoji_category_activities">活动</string>
+    <string name="emoji_category_objects">物品</string>
+    <string name="emoji_category_symbols">符号</string>
+    <string name="emoji_category_flags">旗帜</string>
+    <string name="emoji_no_recent">暂无最近使用的表情</string>
+    <string name="emoji_close_abc">ABC</string>
+    <string name="emoji_backspace">退格</string>
+</resources>

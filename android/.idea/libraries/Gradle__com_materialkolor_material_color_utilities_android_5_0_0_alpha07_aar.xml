@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.materialkolor:material-color-utilities-android:5.0.0-alpha07@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/9.6.0/transforms/6fe1b9830c191bc244f6b27f061111a8/transformed/material-color-utilities/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/9.6.0/transforms/6fe1b9830c191bc244f6b27f061111a8/transformed/material-color-utilities/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/9.6.0/transforms/d3773e68948397c8557c9c52dd63939a/transformed/material-color-utilities/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/9.6.0/transforms/d3773e68948397c8557c9c52dd63939a/transformed/material-color-utilities/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
