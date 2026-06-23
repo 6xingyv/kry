@@ -1,5 +1,7 @@
 /target/
 /assets/
+/tools/
+/datasets/
 /assets/artifact-registry.json
 __pycache__/
 *.pyc
