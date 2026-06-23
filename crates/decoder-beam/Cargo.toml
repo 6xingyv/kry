@@ -1,0 +1,15 @@
+[package]
+name = "decoder-beam"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+context-core.workspace = true
+decoder-core.workspace = true
+lm-core.workspace = true
+geometry-core.workspace = true
+keymap-core.workspace = true
+personal-core.workspace = true
+profile-core.workspace = true
+schema-core.workspace = true

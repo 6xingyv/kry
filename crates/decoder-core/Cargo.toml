@@ -1,0 +1,10 @@
+[package]
+name = "decoder-core"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+geometry-core.workspace = true
+keymap-core.workspace = true
+schema-core.workspace = true

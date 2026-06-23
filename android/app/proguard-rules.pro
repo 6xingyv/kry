@@ -1,0 +1,1 @@
+-keep class com.mocharealm.kry.android.nativebridge.KryNative { *; }

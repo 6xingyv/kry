@@ -1,0 +1,33 @@
+pluginManagement {
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven {
+            url = uri("file:///E:/maven")
+            mavenContent {
+                includeGroupAndSubgroups("com.mocharealm")
+                includeGroupAndSubgroups("top.yukonga.miuix.kmp")
+            }
+        }
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "KryAndroid"
+include(":app")

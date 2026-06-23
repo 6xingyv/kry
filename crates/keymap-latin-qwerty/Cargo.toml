@@ -1,0 +1,9 @@
+[package]
+name = "keymap-latin-qwerty"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+geometry-core.workspace = true
+keymap-core.workspace = true

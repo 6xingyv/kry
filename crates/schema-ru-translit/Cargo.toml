@@ -1,0 +1,9 @@
+[package]
+name = "schema-ru-translit"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+data-core.workspace = true
+schema-core.workspace = true

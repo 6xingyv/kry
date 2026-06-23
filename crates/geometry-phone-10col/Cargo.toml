@@ -1,0 +1,8 @@
+[package]
+name = "geometry-phone-10col"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+geometry-core.workspace = true

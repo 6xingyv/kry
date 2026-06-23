@@ -1,0 +1,9 @@
+[package]
+name = "profile-core"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+keymap-core.workspace = true
+schema-core.workspace = true

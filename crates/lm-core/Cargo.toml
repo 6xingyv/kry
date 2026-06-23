@@ -1,0 +1,17 @@
+[package]
+name = "lm-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+candle-core = "0.10"
+candle-nn = "0.10"
+safetensors = "0.5"
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+[features]
+# Apple GPU training. Optional so default / Android builds stay pure-CPU and don't
+# pull the macOS-only `metal` crate. Enable with `--features metal` on the trainer.
+metal = ["candle-core/metal", "candle-nn/metal"]

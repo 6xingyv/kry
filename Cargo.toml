@@ -1,0 +1,60 @@
+[workspace]
+members = [
+    "crates/observation-core",
+    "crates/geometry-core",
+    "crates/geometry-phone-10col",
+    "crates/keymap-core",
+    "crates/keymap-latin-qwerty",
+    "crates/keymap-latin-spanish",
+    "crates/keymap-ru-jcuken",
+    "crates/schema-core",
+    "crates/schema-en-word",
+    "crates/schema-es-word",
+    "crates/schema-zh-hans-pinyin-full",
+    "crates/schema-ru-cyrillic",
+    "crates/schema-ru-translit",
+    "crates/lm-core",
+    "crates/schema-emoji",
+    "crates/profile-core",
+    "crates/context-core",
+    "crates/personal-core",
+    "crates/data-core",
+    "crates/decoder-core",
+    "crates/decoder-beam",
+    "crates/engine-core",
+    "crates/android-ffi",
+    "crates/preview-egui",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+license = "NOT LICENSED"
+version = "0.1.0"
+
+[workspace.dependencies]
+context-core = { path = "crates/context-core" }
+data-core = { path = "crates/data-core" }
+decoder-beam = { path = "crates/decoder-beam" }
+decoder-core = { path = "crates/decoder-core" }
+eframe = "0.28"
+engine-core = { path = "crates/engine-core" }
+geometry-core = { path = "crates/geometry-core" }
+geometry-phone-10col = { path = "crates/geometry-phone-10col" }
+lm-core = { path = "crates/lm-core" }
+keymap-core = { path = "crates/keymap-core" }
+keymap-latin-qwerty = { path = "crates/keymap-latin-qwerty" }
+keymap-latin-spanish = { path = "crates/keymap-latin-spanish" }
+keymap-ru-jcuken = { path = "crates/keymap-ru-jcuken" }
+observation-core = { path = "crates/observation-core" }
+personal-core = { path = "crates/personal-core" }
+profile-core = { path = "crates/profile-core" }
+schema-core = { path = "crates/schema-core" }
+schema-emoji = { path = "crates/schema-emoji" }
+schema-en-word = { path = "crates/schema-en-word" }
+schema-es-word = { path = "crates/schema-es-word" }
+schema-ru-cyrillic = { path = "crates/schema-ru-cyrillic" }
+schema-ru-translit = { path = "crates/schema-ru-translit" }
+schema-zh-hans-pinyin-full = { path = "crates/schema-zh-hans-pinyin-full" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

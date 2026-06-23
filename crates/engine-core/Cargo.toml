@@ -1,0 +1,32 @@
+[package]
+name = "engine-core"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+context-core.workspace = true
+data-core.workspace = true
+decoder-beam.workspace = true
+lm-core.workspace = true
+decoder-core.workspace = true
+geometry-core.workspace = true
+geometry-phone-10col.workspace = true
+keymap-core.workspace = true
+keymap-latin-qwerty.workspace = true
+keymap-latin-spanish.workspace = true
+keymap-ru-jcuken.workspace = true
+observation-core.workspace = true
+personal-core.workspace = true
+profile-core.workspace = true
+schema-core.workspace = true
+schema-emoji.workspace = true
+schema-en-word.workspace = true
+schema-es-word.workspace = true
+schema-ru-cyrillic.workspace = true
+schema-ru-translit.workspace = true
+schema-zh-hans-pinyin-full.workspace = true
+
+[dev-dependencies]
+candle-core = "0.10"
+serde_json = { workspace = true }

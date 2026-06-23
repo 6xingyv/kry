@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.materialkolor:material-color-utilities-android:5.0.0-alpha07@aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/9.6.0/transforms/6fe1b9830c191bc244f6b27f061111a8/transformed/material-color-utilities/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/9.6.0/transforms/6fe1b9830c191bc244f6b27f061111a8/transformed/material-color-utilities/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.materialkolor/material-color-utilities-android/5.0.0-alpha07/6f3b25c44bf534a3a6cae1e19eb9ce7b2fb02dd5/material-color-utilities-android-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

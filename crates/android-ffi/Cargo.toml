@@ -1,0 +1,15 @@
+[package]
+name = "android-ffi"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[lib]
+name = "kry_android"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+decoder-core.workspace = true
+engine-core.workspace = true
+geometry-core.workspace = true
+jni = "0.21"

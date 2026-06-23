@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.Kry" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#0087FD</item>
+        <item name="android:navigationBarColor">#F4F7FB</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+</resources>

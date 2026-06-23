@@ -1,0 +1,9 @@
+[package]
+name = "schema-zh-hans-pinyin-full"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+data-core.workspace = true
+schema-core.workspace = true

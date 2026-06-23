@@ -1,0 +1,14 @@
+[package]
+name = "preview-egui"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+decoder-core.workspace = true
+eframe.workspace = true
+engine-core.workspace = true
+geometry-core.workspace = true
+geometry-phone-10col.workspace = true
+keymap-core.workspace = true
+keymap-latin-qwerty.workspace = true
